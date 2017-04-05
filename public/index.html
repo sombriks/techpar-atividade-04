@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="atv4">
+
+<head>
+    <title>TECHPAR - Atividade 4</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="/scripts/angular/angular.js"></script>
+</head>
+
+<body ng-controller="pessoaController as ctrl">
+    <fieldset>
+        <legend>ADICIONAR PESSOA</legend>
+        <form ng-submit="ctrl.save()">
+            <input type="text" ng-model="ctrl.novo.nome_pessoa" placeholder="Nome" required>
+            <input type="text" ng-model="ctrl.novo.telefone_pessoa" placeholder="Telefone" required>
+            <input type="submit" value="Adicionar">
+        </form>
+    </fieldset>
+
+    <fieldset>
+        <legend>PESSOAS CADASTRADAS</legend>
+            <li ng-repeat="p in ctrl.listAll">Nome: {{p.nome_pessoa}} Telefone: {{p.telefone_pessoa}}</li>
+    </fieldset>
+
+    <script src="angular.module.js"></script>
+    <script src="pessoa.controller.js"></script>
+    <script src="pessoa.service.js"></script>
+</body>
+
+</html>
