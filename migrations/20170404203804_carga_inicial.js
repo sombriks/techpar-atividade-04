@@ -9,5 +9,8 @@ exports.up = function (knex, Promise) {
 };
 
 exports.down = function (knex, Promise) {
-    return knex("pessoa").where(data).del();
+    // o idioma é bonito, mas notei que ele não era documentado.
+    // ele joga um erro super silent caso chamemos o down de somente este migrate.        
+    // return knex("pessoa").where(data).del();
+    return knex("pessoa").del().whereIn("id_pessoa", data.map(e => e.id_pessoa));        
 };
